@@ -32,5 +32,5 @@ switch (country.toLowerCase()) {
 }
 
 if (cost !== 0) {
-  console.log('Доставка в ' + country + ' будет стоить ' + cost + ' кредитов');
+  console.log(`Доставка в ${country} будет стоить ${cost} кредитов`);
 }

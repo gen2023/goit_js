@@ -15,11 +15,7 @@ if (kol_vo === null) {
   } else {
     let balance = credits - totalPrice;
     console.log(
-      'Вы купили',
-      kol_vo,
-      ' дроидов, на счету осталось',
-      balance,
-      ' кредитов',
+      `Вы купили ${kol_vo} дроидов, на счету осталось ${balance} кредитов`,
     );
   }
 }
