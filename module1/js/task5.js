@@ -30,7 +30,6 @@ switch (country.toLowerCase()) {
   default:
     console.log('В вашей стране доставка не доступна');
 }
-
 if (cost !== 0) {
   console.log(`Доставка в ${country} будет стоить ${cost} кредитов`);
 }
