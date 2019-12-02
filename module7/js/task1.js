@@ -35,20 +35,22 @@
 // </ul>
 // Напиши скрипт, который выполнит следующие операции.
 
-// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item. 
+// Посчитает и выведет в консоль количество категорий в ul#categories, то есть элементов li.item.
 // Получится 'В списке 3 категории.'.
-
-// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка 
+const list = document.getElementById('categories');
+const li_item = list.querySelectorAll('.item');
+console.log('В списке ' + li_item.length + ' категории');
+// Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль текст заголовка
 // элемента (тега h2) и количество элементов в категории (всех вложенных в него элементов li).
 
+li_item.forEach((elem_mass, i) => {
+  const h2_text = elem_mass.querySelector('h2');
+  const li_length = elem_mass.querySelectorAll('li');
+  console.log(i + 1 + '-ый заголовок - ' + h2_text.textContent);
+  console.log('Колличесво ' + li_length.length);
+});
 // Например для первой категории получится:
 
 // Категория: Животные
 // Количество элементов: 4
-
-
-
-
-
-
-
+console.log('================================================================');
