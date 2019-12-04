@@ -39,3 +39,4 @@ for (const image of images) {
   result.insertAdjacentElement('afterbegin', li_element, img);
 }
 //Неправильно, т.к. вывод должен быть в одну итерацию
+console.log('================================================================');
