@@ -4,6 +4,7 @@ img {
 #gallery {
   display: flex;
   justify-content: space-around;
+  list-style: none;
 }
 
 #validation-input {

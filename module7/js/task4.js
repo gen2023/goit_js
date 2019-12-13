@@ -15,4 +15,3 @@ document
     clickCount += 1;
     element.textContent = clickCount;
   });
-console.log('================================================================');

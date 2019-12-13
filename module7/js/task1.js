@@ -8,5 +8,3 @@ li_item.forEach((elem_mass, i) => {
   console.log(i + 1 + '-ый заголовок - ' + h2_text.textContent);
   console.log('Колличесво ' + li_length.length);
 });
-
-console.log('================================================================');

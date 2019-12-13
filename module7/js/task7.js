@@ -9,4 +9,3 @@ input.addEventListener('click', event => {
 
   text.style.fontSize = value + 'px';
 });
-console.log('================================================================');

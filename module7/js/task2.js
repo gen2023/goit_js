@@ -15,14 +15,10 @@ const ingredients = [
 // Напиши скрипт, который для каждого элемента массива ingredients создаст отдельный li, после чего
 // вставит все li за одну операцию в список ul.ingredients. Для создания DOM-узлов используй
 //document.createElement().
-const result = document.querySelector('#ingredients');
-
-for (const ingredient of ingredients) {
+const ingredientsLi = ingredients.map(item => {
   const li_element = document.createElement('li');
-  li_element.textContent = ingredient;
-  //console.log(li_element);
-  result.appendChild(li_element);
-}
+  li_element.textContent = item;
+  return li_element;
+});
 
-//но наверное єто не правильно, т.к. вставляется єлемент в цикле, а скорее всего должен вставляться отдельно от цикла
-console.log('================================================================');
+document.getElementById('ingredients').prepend(...ingredientsLi);

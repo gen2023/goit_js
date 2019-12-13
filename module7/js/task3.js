@@ -26,17 +26,12 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const gallery = document.getElementById('gallery');
 
-const result = document.querySelector('#gallery');
+let HTMLText = '';
 
-for (const image of images) {
-  const li_element = document.createElement('li');
-  const img = document.createElement('img');
-  img.src = image.url;
-  img.alt = image.alt;
-  console.log(img);
-
-  result.insertAdjacentElement('afterbegin', li_element, img);
+for (let i = 0; i < images.length; i++) {
+  HTMLText = `${HTMLText}<li><img src="${images[i].url}" alt="${images[i].alt}"></li>`;
 }
-//Неправильно, т.к. вывод должен быть в одну итерацию
-console.log('================================================================');
+
+gallery.insertAdjacentHTML('afterbegin', HTMLText);

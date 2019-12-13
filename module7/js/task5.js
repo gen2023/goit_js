@@ -7,4 +7,3 @@ function outputText(event) {
     output.textContent = event.currentTarget.value;
   else output.textContent = 'незнакомец';
 }
-console.log('================================================================');
