@@ -43,6 +43,9 @@ function outputText(event) {
       } else {
         listImage(data);
       }
+    })
+    .catch(error => {
+      console.log(error);
     });
 }
 
