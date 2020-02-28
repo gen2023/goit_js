@@ -11,10 +11,31 @@ const scrollTop = document.querySelector('.scrollTop');
 
 let numberPage = 1;
 let url = '';
+let urlOld = '';
 let nameImg = '';
 const key = '15335166-46184c58e4c8bb577f38781ce';
 
+function outputText(event) {
+  stopEvent();
+  urlImage();
+  fetch(url)
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      if (nameImg === '') {
+        clearListItems();
+      } else {
+        listImage(data);
+      }
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}
+
 function urlImage() {
+  urlOld = url;
   nameImg = input.value;
   url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${nameImg}&page=${numberPage}&per_page=12&key=${key}`;
 }
@@ -22,7 +43,12 @@ function urlImage() {
 function listImage(data) {
   if (data.total === 0) {
     alert('no image');
+    clearListItems();
+    input.value = '';
   } else {
+    if (urlOld != url) {
+      clearListItems();
+    }
     const name = data.hits.map(data => templateList(data)).join('');
     gallery.insertAdjacentHTML('beforeend', name);
     loadMore.hidden = false;
@@ -32,6 +58,7 @@ function listImage(data) {
 function clearListItems() {
   gallery.innerHTML = '';
   loadMore.hidden = true;
+  stopEvent();
 }
 
 function stopEvent(event) {
@@ -40,27 +67,6 @@ function stopEvent(event) {
       event.preventDefault();
     }
   });
-}
-
-function outputText(event) {
-  stopEvent();
-  urlImage();
-  fetch(url)
-    .then(response => {
-      // console.log(response.json());
-      return response.json();
-    })
-    .then(data => {
-      if (nameImg === '') {
-        clearListItems();
-        stopEvent();
-      } else {
-        listImage(data);
-      }
-    })
-    .catch(error => {
-      console.log(error);
-    });
 }
 
 scrollTop.addEventListener('click', event => {
