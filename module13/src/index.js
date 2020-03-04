@@ -8,10 +8,11 @@ const gallery = document.querySelector('.gallery');
 const loadMore = document.querySelector('button[name="load-more"]');
 const input = document.querySelector('input[name="query"]');
 const scrollTop = document.querySelector('.scrollTop');
+const form = document.querySelector('.search-form');
 
 let numberPage = 1;
 let url = '';
-let urlOld = '';
+let nameImgOld = '';
 let nameImg = '';
 const key = '15335166-46184c58e4c8bb577f38781ce';
 
@@ -35,7 +36,7 @@ function outputText(event) {
 }
 
 function urlImage() {
-  urlOld = url;
+  nameImgOld = nameImg;
   nameImg = input.value;
   url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${nameImg}&page=${numberPage}&per_page=12&key=${key}`;
 }
@@ -46,7 +47,7 @@ function listImage(data) {
     clearListItems();
     input.value = '';
   } else {
-    if (urlOld != url) {
+    if (nameImgOld != nameImg) {
       clearListItems();
     }
     const name = data.hits.map(data => templateList(data)).join('');
@@ -62,10 +63,10 @@ function clearListItems() {
 }
 
 function stopEvent(event) {
-  input.addEventListener('keydown', function(event) {
-    if (event.keyCode == 13) {
-      event.preventDefault();
-    }
+  form.addEventListener('submit', function(event) {
+    //if (event.keyCode == 13) {
+    event.preventDefault();
+    // }
   });
 }
 
